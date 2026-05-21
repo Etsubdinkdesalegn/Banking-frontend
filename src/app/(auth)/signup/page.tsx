@@ -37,9 +37,8 @@ export default function SignupPage() {
       
       toast.success("Account created successfully!");
       router.push("/dashboard");
-    } catch (error) {
-      const err = error as Error;
-      toast.error(err.message);
+    } catch (error: any) {
+      toast.error(error.message);
     } finally {
       setIsLoading(false);
     }

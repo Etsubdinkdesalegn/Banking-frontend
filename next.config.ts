@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  // Avoid errors with external assets if any
+  images: {
+    unoptimized: true,
   }
 };
 
