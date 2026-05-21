@@ -103,8 +103,9 @@ export default function TransactionsPage() {
         amount: "",
         description: ""
       }));
-    } catch (error: any) {
-      toast.error(error.response?.data?.message || "Transaction failed. Please check your details.");
+    } catch (error) {
+      const err = error as any;
+      toast.error(err.response?.data?.message || "Transaction failed. Please check your details.");
     } finally {
       setLoading(false);
     }
@@ -118,7 +119,7 @@ export default function TransactionsPage() {
     );
   }
 
-  const tabs: { id: TransactionType, label: string, icon: any, desc: string }[] = [
+  const tabs: { id: TransactionType, label: string, icon: React.ElementType, desc: string }[] = [
     { id: 'transfer', label: 'Transfer', icon: RefreshCcw, desc: 'Account-to-Account Transfer' },
     { id: 'cash-transfer', label: 'Cash Transfer', icon: Send, desc: 'Send cash to any account' },
     { id: 'withdraw', label: 'Withdraw', icon: ArrowUpRight, desc: 'Cash Withdrawal from your account' },
@@ -315,7 +316,7 @@ export default function TransactionsPage() {
               <CardContent className="text-sm text-gray-600 space-y-4">
                 <div className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#3C0366] mt-1.5 shrink-0" />
-                  <p>Always double-check the recipient's account number before confirming.</p>
+                  <p>Always double-check the recipient&apos;s account number before confirming.</p>
                 </div>
                 <div className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#3C0366] mt-1.5 shrink-0" />

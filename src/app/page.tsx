@@ -134,7 +134,7 @@ export default function Home() {
             <div className="flex flex-col items-center gap-16">
               <div className="text-center max-w-3xl">
                 <h2 className="text-4xl font-bold mb-4 text-[#3C0366]">Why Choose CBE Digital?</h2>
-                <p className="text-lg text-gray-600">We combine the strength of Ethiopia's largest bank with cutting-edge technology to solve real-world problems.</p>
+                <p className="text-lg text-gray-600">We combine the strength of Ethiopia&apos;s largest bank with cutting-edge technology to solve real-world problems.</p>
               </div>
               <div className="grid md:grid-cols-3 gap-12">
                 <div className="flex flex-col items-center text-center space-y-4">

@@ -34,8 +34,9 @@ export default function LoginPage() {
       
       toast.success("Login successful!");
       router.push("/dashboard");
-    } catch (error: any) {
-      toast.error(error.message);
+    } catch (error) {
+      const err = error as Error;
+      toast.error(err.message);
     } finally {
       setIsLoading(false);
     }
@@ -94,7 +95,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/signup" className="font-bold text-[#00a651] hover:underline">
             Register for CBE Birr
           </Link>
