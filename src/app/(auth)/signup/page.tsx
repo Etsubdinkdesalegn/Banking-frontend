@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import api from "@/api/axios";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -23,15 +24,8 @@ export default function SignupPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const { data } = await api.post("auth/register", formData);
 
-      if (!res.ok) throw new Error("Registration failed");
-
-      const data = await res.json();
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data));
       

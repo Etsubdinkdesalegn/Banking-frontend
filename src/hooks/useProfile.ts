@@ -12,7 +12,7 @@ export const useProfile = () => {
     formData.append('file', file);
 
     try {
-      const { data: imageUrl } = await api.post('/users/me/avatar', formData, {
+      const { data: imageUrl } = await api.post('users/me/avatar', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       if (user) {

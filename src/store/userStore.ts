@@ -17,7 +17,7 @@ export const useUserStore = create<UserState>((set) => ({
   fetchUser: async () => {
     set({ isLoading: true });
     try {
-      const { data } = await api.get('/users/me');
+      const { data } = await api.get('users/me');
       set({ user: data });
     } finally {
       set({ isLoading: false });
@@ -25,7 +25,7 @@ export const useUserStore = create<UserState>((set) => ({
   },
   updateUser: async (data) => {
     try {
-      const { data: updatedUser } = await api.patch('/users/me', data);
+      const { data: updatedUser } = await api.patch('users/me', data);
       set({ user: updatedUser });
     } catch (error) {
       console.error('Update failed', error);

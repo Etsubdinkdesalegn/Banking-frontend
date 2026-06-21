@@ -59,7 +59,7 @@ export default function TransactionsPage() {
 
   const loadAccounts = async () => {
     try {
-      const { data } = await api.get("/banking/accounts");
+      const { data } = await api.get("banking/accounts");
       setAccounts(data);
       if (data.length > 0) {
         setFormData(prev => ({ ...prev, senderAccountNumber: data[0].accountNumber }));
@@ -81,10 +81,10 @@ export default function TransactionsPage() {
     setSuccess(false);
 
     try {
-      let endpoint = "/banking/transfer";
-      if (activeTab === 'withdraw') endpoint = "/banking/withdraw";
-      if (activeTab === 'deposit') endpoint = "/banking/deposit";
-      if (activeTab === 'cash-transfer') endpoint = "/banking/cash-transfer";
+      let endpoint = "banking/transfer";
+      if (activeTab === 'withdraw') endpoint = "banking/withdraw";
+      if (activeTab === 'deposit') endpoint = "banking/deposit";
+      if (activeTab === 'cash-transfer') endpoint = "banking/cash-transfer";
 
       const payload = {
         ...formData,
